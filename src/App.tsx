@@ -112,16 +112,16 @@ const DashboardContent: React.FC = () => {
       />
 
       <div className="flex-1 flex overflow-hidden">
-        {/* Desktop Sidebar (hidden on mobile) */}
-        <div className="hidden md:flex shrink-0">
+        {/* Desktop Sidebar (docked on desktop lg screens) */}
+        <div className="hidden lg:flex shrink-0">
           <Sidebar />
         </div>
 
-        {/* Mobile Slide-over Drawer */}
+        {/* Tablet Slide-over Drawer (toggled by hamburger on tablet) */}
         {isMobileSidebarOpen && (
-          <div className="fixed inset-0 z-50 flex md:hidden">
+          <div className="fixed inset-0 z-50 flex lg:hidden">
             <div 
-              className="fixed inset-0 bg-black/50 backdrop-blur-xs"
+              className="fixed inset-0 bg-black/50 backdrop-blur-xs transition-opacity"
               onClick={() => setIsMobileSidebarOpen(false)}
             />
             <div className="relative w-72 max-w-[80vw] bg-white h-full shadow-2xl flex flex-col z-10 animate-in slide-in-from-left duration-200">
@@ -131,14 +131,14 @@ const DashboardContent: React.FC = () => {
         )}
 
         {/* Main Workspace without repetitive tabs */}
-        <main className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-8 pb-20 md:pb-8">
+        <main className="flex-1 overflow-y-auto p-3 sm:p-6 lg:p-8 pb-20 sm:pb-8">
           <div className="max-w-7xl mx-auto">
             {renderModuleView()}
           </div>
         </main>
       </div>
 
-      {/* Touch-optimized fixed bottom bar for mobile & tablet */}
+      {/* Touch-optimized fixed bottom bar for mobile */}
       <BottomBar />
 
       {/* Global 7-step pipeline interactive modal */}

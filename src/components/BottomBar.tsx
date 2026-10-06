@@ -71,7 +71,7 @@ export const BottomBar: React.FC = () => {
   const items = getBottomBarItems();
 
   return (
-    <div className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-1.5 flex justify-around items-center shadow-lg safe-bottom">
+    <div className="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-1.5 flex justify-around items-center shadow-lg safe-bottom">
       {items.map((item) => {
         const isActive = activeModule === item.id;
         return (

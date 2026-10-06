@@ -8,6 +8,7 @@ import {
   ChevronDown, 
   Database, 
   Menu, 
+  X,
   Trash2, 
   CheckCircle2, 
   ShieldAlert,
@@ -48,14 +49,16 @@ export const Header: React.FC<Props> = ({ onToggleSidebar, isSidebarOpen }) => {
       <header className="sticky top-0 z-30 w-full bg-white border-b border-slate-200 shadow-xs">
         <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 sm:h-18 flex items-center justify-between gap-2 sm:gap-4">
           
-          {/* Left: Mobile sidebar toggle + Full-Size Brand Logo (NOT ENCAPSULATED) */}
+          {/* Left: Tablet sidebar toggle (disabled on mobile) + Full-Size Brand Logo (NOT ENCAPSULATED) */}
           <div className="flex items-center gap-2 sm:gap-4">
+            {/* Hamburger button: DESACTIVADO en móvil (< sm), ACTIVADO en tablet (sm:flex a lg:hidden) */}
             <button
               onClick={onToggleSidebar}
-              className="md:hidden p-2 text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-lg"
-              title="Abrir menú"
+              className="hidden sm:flex lg:hidden p-2 text-slate-700 hover:text-slate-900 hover:bg-slate-100 rounded-xl border border-slate-200 transition items-center justify-center cursor-pointer"
+              title={isSidebarOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"}
+              aria-label="Alternar menú de navegación"
             >
-              <Menu className="w-5 h-5" />
+              {isSidebarOpen ? <X className="w-5 h-5 text-[#91B146]" /> : <Menu className="w-5 h-5 text-slate-700" />}
             </button>
 
             {/* UNENCAPSULATED FULL SIZE LOGO */}
