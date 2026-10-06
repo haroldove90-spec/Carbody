@@ -1,0 +1,6 @@
+{
+  "name": "Carbody",
+  "description": "Sistema integral de gestión de taller de hojalatería y pintura automotriz: recepción con peritaje 360°, valuación por paneles, control de producción kanban, almacén y refacciones, facturación, cuentas por cobrar/pagar y postventa.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
